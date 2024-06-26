@@ -37,7 +37,7 @@ def loadServerPublicKey():
     Return: serverPublicKey - the loaded server's public key object
     '''
     try:
-        with open("server_public.pem", "r") as file:
+        with open("Server_keys/server_public.pem", "r") as file:
             serverPublicKey = RSA.import_key(file.read())
         return serverPublicKey
     except Exception as e:

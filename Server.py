@@ -55,7 +55,7 @@ def encryptMessage(message, publicKey):
         if message is None or publicKey is None:
             print(">> Error: Neither the message nor the public key is present.")
             return None
-        with open("server_private.pem", "r") as file:
+        with open("Server_keys/server_private.pem", "r") as file:
             privateKey = RSA.import_key(file.read())
         # Create a cipher object with the public key
         cipher = PKCS1_OAEP.new(publicKey)
@@ -85,7 +85,7 @@ def decipherMessage(encryptedMSG):
     '''
     try:
         # load the server's private key
-        with open("server_private.pem", "r") as file:
+        with open("Server_keys/server_private.pem", "r") as file:
             privateKey = RSA.import_key(file.read())
         # end with
             
@@ -223,10 +223,10 @@ def loadServerKeys():
     '''
     try:
         # attempting to load both the server's public and private keys
-        with open("server_private.pem", 'r') as file:
+        with open("Server_keys/server_private.pem", 'r') as file:
             privateKey = RSA.import_key(file.read())
         # end with
-        with open("server_public.pem", 'r') as file:
+        with open("Server_keys/server_public.pem", 'r') as file:
             publicKey = RSA.import_key(file.read())
         # end with
     except FileNotFoundError:
@@ -268,13 +268,13 @@ def saveServerKeys(publicKey, privateKey):
     '''
     try:
         # saves the server's public key to .pem file
-        with open("server_public.pem", 'wb') as file:
+        with open("Server_key/server_public.pem", 'wb') as file:
             file.write(publicKey)
         # end with
         print("\t>> Server's public key saved as 'server_public.pem'")
 
         # saves the server's private key to .pem file
-        with open("server_private.pem", 'wb') as file:
+        with open("Server_key/server_private.pem", 'wb') as file:
             file.write(privateKey)
         # end with
         print("\t>> Server's private key saved as 'server_private.pem'")
