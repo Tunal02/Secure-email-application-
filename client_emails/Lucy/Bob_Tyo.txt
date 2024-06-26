@@ -1,0 +1,1 @@
+{"sender": "Bob", "destinations": ["Lucy"], "title": "Tyo", "content_length": 10, "message_contents": "hello Lucy", "Time": "2024-06-26 12:51:00"}

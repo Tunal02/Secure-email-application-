@@ -1,8 +1,8 @@
 import socket
 import sys
-from Server import handleClient
+from Email_app.Server import handleClient
 import os
-def main():
+def server():
     '''
     Purpose: the main function that runs the server-side of the secure mail 
              transfer protocol and its available functions
@@ -33,7 +33,8 @@ def main():
 
     # prints out a successful message the server has been initialized
     print(">> The server is ready to accept connections and is listening.")
-
+    cwd = os.getcwd()
+    print(f'This is a new dir{cwd}')
     pid=os.fork()
     if pid>0:
         while True:
@@ -68,4 +69,4 @@ def main():
 # end main()
     
 if __name__ == "__main__":
-    main()
+    server()

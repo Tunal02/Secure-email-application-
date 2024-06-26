@@ -167,7 +167,6 @@ def sendEmail(clientSocket, sym_key):
     }
 
     # Encrypt email message
-    print(email_message)
     iv=get_random_bytes(16)
     encrypted_email = encryptWithSymKey(json.dumps(email_message), sym_key,iv)
     clientSocket.send(iv)
@@ -179,7 +178,6 @@ def sendEmail(clientSocket, sym_key):
 def viewEmail(clientSocket, sym_key):
     iv=clientSocket.recv(16)
     mssg = clientSocket.recv(1024)
-    print(mssg)
     mssg = decrpyt_sym(mssg, sym_key,iv)
     print(mssg)
 
@@ -356,7 +354,7 @@ def main():
     Parameter: none
     Return: none
     '''
-
+    os.chdir("..") 
     # call a helper function to authenticate to the server
     clientSocket, clientPrivateKey,clientPubKey,sym_key = authenticateWithServer()
     # receiving data from Server.py for a welcome message

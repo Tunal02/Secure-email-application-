@@ -576,6 +576,7 @@ def handleClient(clientUsingServerSocket, addr):
                addr - client address
     Return: none
     '''
+   
 
     # gets the IP address of the client's machine
     hostname = socket.gethostname()
@@ -645,7 +646,6 @@ def handleClient(clientUsingServerSocket, addr):
     clientUsingServerSocket.send(serverWelcomeMessage.encode())
     menu = ">> Select an operation:\n\t1) Create and send an email\n\t2) Display the inbox list\n\t3) Display the email contents\n\t4) Terminate the connection\n>> User's choice: "
 
-            #encryptedMenu = encryptMessage(menu.encode(), clientPubKeys[username])
     
 
     while True:
